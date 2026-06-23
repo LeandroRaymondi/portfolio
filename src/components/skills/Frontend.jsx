@@ -1,68 +1,29 @@
 import React from "react";
 
 const Frontend = () => {
+  const skills = [
+    ["HTML/CSS", "Interfaces responsive"],
+    ["JavaScript", "Lógica e interacción"],
+    ["React", "Componentes y SPAs"],
+    ["Bootstrap/SASS", "UI productiva"],
+    ["Git/GitHub", "Flujo de versionado"],
+    ["APIs", "Consumo e integracion"],
+  ];
+
   return (
     <div className="skills__content">
-      <h3 className="skills__title">Frontend developer</h3>
+      <h3 className="skills__title">Frontend y experiencia de usuario</h3>
 
       <div className="skills__box">
-        <div className="skills__group">
-          <div className="skills__data">
-            <i class="bx bx-badge-check"></i>
-
+        {skills.map(([name, level]) => (
+          <div className="skills__data" key={name}>
+            <i className="bx bx-badge-check"></i>
             <div>
-              <h3 className="skills__name">HTML</h3>
-              <span className="skills__level">Intermedio</span>
+              <h3 className="skills__name">{name}</h3>
+              <span className="skills__level">{level}</span>
             </div>
           </div>
-
-          <div className="skills__data">
-            <i class="bx bx-badge-check"></i>
-
-            <div>
-              <h3 className="skills__name">CSS</h3>
-              <span className="skills__level">Intermedio</span>
-            </div>
-          </div>
-
-          <div className="skills__data">
-            <i class="bx bx-badge-check"></i>
-
-            <div>
-              <h3 className="skills__name">JavaScript</h3>
-              <span className="skills__level">Intermedio</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="skills__group">
-          <div className="skills__data">
-            <i class="bx bx-badge-check"></i>
-
-            <div>
-              <h3 className="skills__name">Bootstrap</h3>
-              <span className="skills__level">Intermedio</span>
-            </div>
-          </div>
-
-          <div className="skills__data">
-            <i class="bx bx-badge-check"></i>
-
-            <div>
-              <h3 className="skills__name">Git</h3>
-              <span className="skills__level">Intermedio</span>
-            </div>
-          </div>
-
-          <div className="skills__data">
-            <i class="bx bx-badge-check"></i>
-
-            <div>
-              <h3 className="skills__name">ReactJS</h3>
-              <span className="skills__level">Intermedio</span>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

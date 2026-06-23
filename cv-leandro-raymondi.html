@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CV - Leandro Ezequiel Raymondi Rossa</title>
+    <style>
+      @page {
+        size: A4;
+        margin: 15mm 17mm;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #15171a;
+        background: #fff;
+        font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+        font-size: 10.6px;
+        line-height: 1.42;
+      }
+
+      a {
+        color: #15171a;
+        text-decoration: none;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      .page {
+        max-width: 176mm;
+        margin: 0 auto;
+      }
+
+      .header {
+        padding-bottom: 12px;
+        border-bottom: 1.6px solid #1f2937;
+        margin-bottom: 13px;
+      }
+
+      .name {
+        font-size: 28px;
+        line-height: 1;
+        font-weight: 800;
+        letter-spacing: -0.6px;
+      }
+
+      .role {
+        margin-top: 5px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+        text-transform: uppercase;
+      }
+
+      .contact {
+        display: grid;
+        grid-template-columns: repeat(3, max-content);
+        gap: 4px 14px;
+        margin-top: 8px;
+        color: #3f444a;
+        font-size: 9.7px;
+      }
+
+      .contact span {
+        white-space: nowrap;
+      }
+
+      .summary {
+        margin-top: 10px;
+        max-width: 168mm;
+        color: #30343a;
+        font-size: 10.8px;
+      }
+
+      .section {
+        margin-bottom: 12px;
+      }
+
+      .section-title {
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #15171a;
+        padding-bottom: 3px;
+        border-bottom: 1px solid #c9ced4;
+        margin-bottom: 7px;
+      }
+
+      .item {
+        margin-bottom: 10px;
+      }
+
+      .item-header {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 12px;
+        align-items: baseline;
+      }
+
+      .item-title {
+        font-size: 12.3px;
+        font-weight: 800;
+      }
+
+      .item-date {
+        color: #5f6670;
+        font-size: 9.5px;
+        white-space: nowrap;
+      }
+
+      .item-subtitle {
+        color: #30343a;
+        font-size: 10px;
+        font-weight: 700;
+        margin-top: 1px;
+        margin-bottom: 4px;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 15px;
+      }
+
+      li {
+        margin-bottom: 3px;
+      }
+
+      .project {
+        margin-bottom: 8px;
+      }
+
+      .project-header {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 12px;
+        align-items: baseline;
+        margin-bottom: 2px;
+      }
+
+      .project-title {
+        font-size: 11.4px;
+        font-weight: 800;
+      }
+
+      .project-link {
+        color: #5f6670;
+        font-size: 9.2px;
+        white-space: nowrap;
+      }
+
+      .project-description {
+        color: #30343a;
+      }
+
+      .stack {
+        margin-top: 2px;
+        color: #15171a;
+        font-size: 9.4px;
+        font-weight: 700;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px 16px;
+      }
+
+      .skill-group h3 {
+        font-size: 10.3px;
+        margin-bottom: 2px;
+      }
+
+      .skill-group p {
+        color: #30343a;
+      }
+
+      .education-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .education-item h3 {
+        font-size: 10.7px;
+        margin-bottom: 2px;
+      }
+
+      .muted {
+        color: #5f6670;
+      }
+
+      .footer-note {
+        color: #5f6670;
+        font-size: 9.2px;
+        border-top: 1px solid #d7dbe0;
+        padding-top: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header class="header">
+        <h1 class="name">Leandro Ezequiel Raymondi Rossa</h1>
+        <p class="role">Full-Stack Developer PHP/LAMP</p>
+
+        <div class="contact">
+          <span>Pilar, Buenos Aires, Argentina</span>
+          <span><a href="mailto:ezequielraymondi@gmail.com">ezequielraymondi@gmail.com</a></span>
+          <span><a href="tel:+541168489990">+54 11 6848 9990</a></span>
+          <span><a href="https://github.com/LeandroRaymondi/">github.com/LeandroRaymondi</a></span>
+          <span><a href="https://linkedin.com/in/leandroraymondi/">linkedin.com/in/leandroraymondi</a></span>
+        </div>
+
+        <p class="summary">
+          Desarrollador web con más de 2 años de experiencia creando soluciones digitales a medida,
+          paneles administrativos y plataformas interactivas. Trabajo principalmente con PHP, MySQL,
+          JavaScript y AWS, participando desde el análisis de necesidades hasta el despliegue en producción.
+        </p>
+      </header>
+
+      <section class="section">
+        <h2 class="section-title">Experiencia</h2>
+        <article class="item">
+          <div class="item-header">
+            <h3 class="item-title">Profesional independiente</h3>
+            <span class="item-date">Marzo 2023 - Actualidad</span>
+          </div>
+          <p class="item-subtitle">Desarrollador Web Full Stack</p>
+          <ul>
+            <li>
+              Diseñé, desarrollé e implementé soluciones web completas para más de 7 clientes,
+              alineando requisitos técnicos con objetivos de negocio.
+            </li>
+            <li>
+              Participé en el ciclo completo de proyectos LAMP: relevamiento, arquitectura,
+              desarrollo, integración, pruebas y despliegue en AWS.
+            </li>
+            <li>
+              Construí paneles administrativos, formularios, galerías dinámicas, sistemas de puntaje,
+              leaderboards y módulos interactivos para capacitaciones y eventos.
+            </li>
+            <li>
+              Trabajé en proyectos destinados a clientes finales como Google, Novo Nordisk, Roche,
+              Acami, Actra, Aiva, EBPLates y AstraZeneca.
+            </li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Proyectos destacados</h2>
+
+        <article class="project">
+          <div class="project-header">
+            <h3 class="project-title">Google x AIConnect</h3>
+            <a class="project-link" href="https://youtube.com/shorts/zGlCkNKy94g">Video demo</a>
+          </div>
+          <p class="project-description">
+            Plataforma interactiva para eventos presenciales con trivias, tótems, memotest, fotografía
+            con tablets y puntaje en tiempo real por equipos.
+          </p>
+          <p class="stack">JavaScript · PHP · MySQL · AWS</p>
+        </article>
+
+        <article class="project">
+          <div class="project-header">
+            <h3 class="project-title">Cardiodiabetesenred</h3>
+            <a class="project-link" href="https://eventmedia.space/cardiodiabetesenred/">Sitio</a>
+          </div>
+          <p class="project-description">
+            Plataforma de capacitación gamificada para colaboradores de Novo Nordisk, con panel
+            administrativo, leaderboard y control en tiempo real de sesiones.
+          </p>
+          <p class="stack">PHP · MySQL · JavaScript · AWS</p>
+        </article>
+
+        <article class="project">
+          <div class="project-header">
+            <h3 class="project-title">Sepelios Natarello</h3>
+            <a class="project-link" href="https://sepeliosnatarello.com.ar/">Sitio</a>
+          </div>
+          <p class="project-description">
+            Sitio corporativo con sistema de gestión personalizado, formulario de contacto, galería
+            dinámica, sección de homenajes y optimización de consultas en PHP/MySQL.
+          </p>
+          <p class="stack">PHP · MySQL · JavaScript · AWS</p>
+        </article>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Stack técnico</h2>
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h3>Backend</h3>
+            <p>PHP, MySQL, SQL, LAMP, Apache</p>
+          </div>
+          <div class="skill-group">
+            <h3>Frontend</h3>
+            <p>HTML, CSS, SASS, JavaScript, React, Bootstrap</p>
+          </div>
+          <div class="skill-group">
+            <h3>Herramientas</h3>
+            <p>Git, GitHub, Postman, AWS, despliegues en producción</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Fortalezas técnicas</h2>
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h3>Sistemas a medida</h3>
+            <p>Paneles internos, CRUDs, formularios y administración de contenido.</p>
+          </div>
+          <div class="skill-group">
+            <h3>Eventos y capacitación</h3>
+            <p>Dinámicas gamificadas, puntajes en vivo y experiencias interactivas.</p>
+          </div>
+          <div class="skill-group">
+            <h3>Producción</h3>
+            <p>Optimización de consultas, manejo seguro de datos y despliegues en AWS.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Educación</h2>
+        <div class="education-grid">
+          <div class="education-item">
+            <h3>CoderHouse</h3>
+            <p>Desarrollo Web, JavaScript y React.</p>
+            <p class="muted">HTML, CSS, SASS, Git, JavaScript ES6, Firebase, Postman, React y Node.js.</p>
+          </div>
+          <div class="education-item">
+            <h3>Secundario Bachiller</h3>
+            <p>Centro Educativo de Nivel Secundario N°453.</p>
+            <p class="muted">Orientación en economía.</p>
+          </div>
+        </div>
+      </section>
+
+      <p class="footer-note">
+        Portfolio y proyectos disponibles en GitHub, LinkedIn y enlaces incluidos en este CV.
+      </p>
+    </main>
+  </body>
+</html>

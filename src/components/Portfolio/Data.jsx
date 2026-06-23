@@ -1,57 +1,46 @@
-import Work1 from "../../assets/work1.jpg";
-import Work2 from "../../assets/work2.jpg";
-import Work3 from "../../assets/work3.jpg";
-/* import Work4 from "../../assets/work4.jpg";
-import Work5 from "../../assets/work5.jpg"; */
+import GoogleAIConnect from "../../assets/googlexaiconnect.png";
+import CardioDiabetesEnRed from "../../assets/cardiodiabetesenred.png";
+import SepeliosNatarello from "../../assets/sepeliosnatarello.png";
 
 export const projectsData = [
   {
-    id: 3,
-    image: Work3,
-    title: "Anime List",
-    category: "web",
-    url: "https://ezequielraymondi.com.ar/animelist/controllers/anime.php"
-  },
-  {
     id: 1,
-    image: Work1,
-    title: "ReactJS CoderHouse",
-    category: "web",
-    url: "https://reactjs-coder-one.vercel.app/"
+    image: GoogleAIConnect,
+    title: "Google x AIConnect",
+    category: "eventos",
+    url: "https://youtube.com/shorts/zGlCkNKy94g",
+    summary:
+      "Plataforma interactiva para eventos presenciales con trivias, memotest, tótems, fotografía con tablets y puntaje en tiempo real por equipos.",
+    stack: ["JavaScript", "PHP", "MySQL", "AWS"],
+    impact: "Experiencia dinámica para potenciar participación y colaboración en vivo.",
   },
   {
     id: 2,
-    image: Work2,
-    title: "Javascript CoderHouse",
-    category: "web",
-    url: "https://leandroraymondi.github.io/proyectoJS-Coder/"
+    image: CardioDiabetesEnRed,
+    title: "Cardiodiabetesenred",
+    category: "plataformas",
+    url: "https://eventmedia.space/cardiodiabetesenred/",
+    summary:
+      "Plataforma de capacitación gamificada para colaboradores de Novo Nordisk con panel administrativo, leaderboard y control de sesiones.",
+    stack: ["PHP", "MySQL", "JavaScript", "AWS"],
+    impact: "Mayor participación y retención durante instancias de formación interna.",
   },
-  /*   {
-      id: 4,
-      image: Work4,
-      title: "App movil",
-      category: "app",
-    },
-    {
-      id: 5,
-      image: Work5,
-      title: "Web design",
-      category: "web",
-    }, */
+  {
+    id: 3,
+    image: SepeliosNatarello,
+    title: "Sepelios Natarello",
+    category: "sistemas",
+    url: "https://sepeliosnatarello.com.ar/",
+    summary:
+      "Sitio corporativo con sistema de gestión personalizado, formulario de contacto, galería dinámica y sección de homenajes.",
+    stack: ["PHP", "MySQL", "JavaScript", "AWS"],
+    impact: "Modernización de presencia online y mejora de interacción con clientes.",
+  },
 ];
 
-// projects
 export const projectsNav = [
-  {
-    name: "all",
-  },
-  {
-    name: "web",
-  }
-  /*   {
-      name: "app",
-    },
-    {
-      name: "design",
-    }, */
+  { name: "all", label: "Todos" },
+  { name: "eventos", label: "Eventos" },
+  { name: "plataformas", label: "Plataformas" },
+  { name: "sistemas", label: "Sistemas" },
 ];

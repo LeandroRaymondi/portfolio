@@ -7,13 +7,17 @@
 
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
-  --hue: 0;
-  --sat: 0%;
-  --title-color: hsl(var(--hue), var(--sat), 20%);
-  --title-color-dark: hsl(var(--hue), var(--sat), 0%);
-  --text-color: hsl(var(--hue), var(--sat), 46%);
-  --body-color: hsl(var(--hue), var(--sat), 98%);
+  --hue: 213;
+  --sat: 23%;
+  --title-color: #172033;
+  --title-color-dark: #080d18;
+  --text-color: #53606f;
+  --body-color: #f6f8fb;
   --container-color: #fff;
+  --accent-color: #006d77;
+  --accent-color-alt: #d97706;
+  --surface-color: #eef4f7;
+  --border-color: rgba(23, 32, 51, 0.1);
 
   /*========== Font and typography ==========*/
   --body-font: "Poppins", sans-serif;
@@ -72,6 +76,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body,
@@ -85,6 +90,7 @@ textarea {
 body {
   background-color: var(--body-color);
   color: var(--text-color);
+  overflow-x: hidden;
 }
 
 h1,
@@ -127,6 +133,8 @@ img {
   display: block;
   font-size: var(--small-font-size);
   margin-bottom: 4rem;
+  color: var(--accent-color);
+  font-weight: var(--font-medium);
 }
 
 .section__title,
@@ -136,6 +144,7 @@ img {
 
 /*=============== LAYOUT ===============*/
 .container {
+  width: calc(100% - 3rem);
   max-width: 968px;
   margin-left: auto;
   margin-right: auto;
@@ -149,10 +158,10 @@ img {
 /*=============== BUTTONS ===============*/
 .button {
   display: inline-block;
-  background-color: var(--title-color);
+  background-color: var(--accent-color);
   color: var(--container-color);
-  padding: 1.25rem 2rem;
-  border-radius: 1rem;
+  padding: 1rem 1.35rem;
+  border-radius: 0.5rem;
   font-weight: var(--font-medium);
 }
 
@@ -169,12 +178,24 @@ img {
   align-items: center;
 }
 
+.button--ghost {
+  background-color: transparent;
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+}
+
+.button--ghost:hover {
+  color: var(--container-color);
+  background-color: var(--title-color-dark);
+  border-color: var(--title-color-dark);
+}
+
 /*=============== BREAKPOINTS ===============*/
 /* For large devices */
 @media screen and (max-width: 992px) {
   .container {
-    margin-left: var(--mb-1-5);
-    margin-right: var(--mb-1-5);
+    width: calc(100% - 3rem);
+    max-width: 968px;
   }
 
   .button {
@@ -203,6 +224,10 @@ img {
 }
 
 @media screen and (max-width: 576px) {
+  .button {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 /* For small devices */
@@ -212,7 +237,7 @@ img {
   }
 
   .container {
-    margin-left: var(--mb-1);
-    margin-right: var(--mb-1);
+    width: calc(100% - 2rem);
+    max-width: 968px;
   }
 }

@@ -16,26 +16,18 @@ const Footer = () => {
 
           <li>
             <a href="#portfolio" className="footer__link">
-              Portfolio
+              Casos reales
             </a>
           </li>
 
-          {/* <li>
-            <a href="#testimonials" className="footer__link">
-              Testimonials
+          <li>
+            <a href="#contact" className="footer__link">
+              Contacto
             </a>
-          </li> */}
+          </li>
         </ul>
 
         <div className="footer__social">
-          {/* <a
-            href="https://www.facebook.com/"
-            className="footer__social-link"
-            target="_blank"
-          >
-            <i className="bx bxl-facebook"></i>
-          </a> */}
-
           <a
             href="https://www.linkedin.com/in/leandroraymondi/"
             className="footer__social-link"
@@ -56,7 +48,7 @@ const Footer = () => {
         </div>
 
         <span className="footer__copy">
-          &#169; LeandroRaymondi. Todos los derechos reservados
+          &#169; LeandroRaymondi. Full-Stack Developer PHP/LAMP.
         </span>
       </div>
     </footer>

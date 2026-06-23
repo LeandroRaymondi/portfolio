@@ -9,7 +9,7 @@ const ScrollUp = () => {
     else scrollUp.classList.remove("show-scroll");
   });
   return (
-    <a href="#home" className="scrollup">
+    <a href="#home" className="scrollup" aria-label="Volver al inicio">
       <i className="uil uil-arrow-up scrollup__icon"></i>
     </a>
   );

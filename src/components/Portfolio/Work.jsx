@@ -4,9 +4,9 @@ import Works from "./Works";
 
 const Work = () => {
   return (
-    <section class="work section" id="portfolio">
-      <h2 class="section__title">Portfolio</h2>
-      <span class="section__subtitle">Mis proyectos</span>
+    <section className="work section" id="portfolio">
+      <h2 className="section__title">Casos reales</h2>
+      <span className="section__subtitle">Proyectos con negocio, usuarios y producción</span>
 
       <Works />
     </section>
