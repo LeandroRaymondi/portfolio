@@ -147,7 +147,7 @@ const Contact = () => {
 
             {status === "daily-limit" && (
               <p className="contact__status contact__status--warning">
-                Recibi tu consulta recientemente. Para evitar duplicados, proba nuevamente mas tarde.
+                Recibimos tu consulta recientemente. Si necesitas agregar algo, podes escribirme por WhatsApp o email.
               </p>
             )}
           </form>

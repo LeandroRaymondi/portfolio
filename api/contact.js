@@ -151,7 +151,7 @@ module.exports = async function handler(req, res) {
 
       return res.status(429).json({
         code: "DAILY_LIMIT_REACHED",
-        message: "Recibi tu consulta recientemente. Para evitar duplicados, proba nuevamente mas tarde.",
+        message: "Recibimos tu consulta recientemente. Si necesitas agregar algo, podes escribirme por WhatsApp o email.",
       });
     }
 
