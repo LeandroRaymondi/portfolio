@@ -1,12 +1,5 @@
-const EMAILJS_ENDPOINT = "https://api.emailjs.com/api/v1.0/email/send";
 const ONE_DAY_SECONDS = 24 * 60 * 60;
 const memoryStore = new Map();
-
-const config = {
-  serviceId: process.env.EMAILJS_SERVICE_ID || "service_l4rujge",
-  templateId: process.env.EMAILJS_TEMPLATE_ID || "template_trwgstn",
-  publicKey: process.env.EMAILJS_PUBLIC_KEY || "vQLEyaJKx0Mb8rlC0",
-};
 
 function getClientIp(req) {
   const forwardedFor = req.headers["x-forwarded-for"];
@@ -134,26 +127,6 @@ function validatePayload(body) {
   };
 }
 
-async function sendEmail(templateParams) {
-  const response = await fetch(EMAILJS_ENDPOINT, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      service_id: config.serviceId,
-      template_id: config.templateId,
-      user_id: config.publicKey,
-      template_params: templateParams,
-    }),
-  });
-
-  if (!response.ok) {
-    const errorText = await response.text();
-    throw new Error(errorText || "EmailJS no pudo enviar el mensaje.");
-  }
-}
-
 module.exports = async function handler(req, res) {
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
@@ -182,16 +155,15 @@ module.exports = async function handler(req, res) {
       });
     }
 
-    await sendEmail(validation.value);
     await markDailyLimit(dailyKey);
     setDailyCookie(res);
 
-    console.info("contact_message_sent", {
+    console.info("contact_daily_limit_reserved", {
       hasKv: Boolean(process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN),
       ip,
     });
 
-    return res.status(200).json({ message: "Mensaje enviado correctamente." });
+    return res.status(200).json({ message: "Envio permitido." });
   } catch (error) {
     return res.status(500).json({
       message: "No se pudo enviar el mensaje. Proba escribirme por email o WhatsApp.",

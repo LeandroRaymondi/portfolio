@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 import "./contact.css";
 
 const CONTACT_LIMIT_KEY = "portfolio_contact_sent_date";
@@ -25,6 +26,10 @@ const Contact = () => {
       from_email: formData.get("from_email"),
       message: formData.get("message"),
     };
+    const templateParams = {
+      clientName: payload.from_name,
+      ...payload,
+    };
 
     try {
       const response = await fetch("/api/contact", {
@@ -43,6 +48,8 @@ const Contact = () => {
       if (!response.ok) {
         throw new Error("No se pudo enviar el mensaje.");
       }
+
+      await emailjs.send("service_l4rujge", "template_trwgstn", templateParams, "vQLEyaJKx0Mb8rlC0");
 
       e.target.reset();
       localStorage.setItem(CONTACT_LIMIT_KEY, getToday());
