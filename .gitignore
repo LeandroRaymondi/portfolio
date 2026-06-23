@@ -25,3 +25,5 @@ yarn-error.log*
 # local tooling
 /.npm-cache
 *.log
+
+.vercel
