@@ -1,32 +1,44 @@
 import React, { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
 import "./contact.css";
 
 const Contact = () => {
   const form = useRef();
   const [status, setStatus] = useState("");
 
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
     setStatus("sending");
 
     const formData = new FormData(e.currentTarget);
-    const templateParams = {
-      clientName: formData.get("from_name"),
+    const payload = {
       from_name: formData.get("from_name"),
       from_email: formData.get("from_email"),
       message: formData.get("message"),
     };
 
-    emailjs
-      .send("service_l4rujge", "template_trwgstn", templateParams, "vQLEyaJKx0Mb8rlC0")
-      .then(() => {
-        e.target.reset();
-        setStatus("success");
-      })
-      .catch(() => {
-        setStatus("error");
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
       });
+
+      if (response.status === 429) {
+        setStatus("daily-limit");
+        return;
+      }
+
+      if (!response.ok) {
+        throw new Error("No se pudo enviar el mensaje.");
+      }
+
+      e.target.reset();
+      setStatus("success");
+    } catch (error) {
+      setStatus("error");
+    }
   };
 
   return (
@@ -73,7 +85,7 @@ const Contact = () => {
         </div>
 
         <div className="contact__content">
-          <h3 className="contact__title">Escríbeme sobre la oportunidad</h3>
+          <h3 className="contact__title">Escribime sobre la oportunidad</h3>
 
           <form ref={form} onSubmit={sendEmail} className="contact__form">
             <div className="contact__form-div">
@@ -93,7 +105,7 @@ const Contact = () => {
                 cols="30"
                 rows="10"
                 className="contact__form-input"
-                placeholder="Contame sobre el rol, proyecto o desafío"
+                placeholder="Contame sobre el rol, proyecto o desafio"
                 required
               ></textarea>
             </div>
@@ -111,7 +123,13 @@ const Contact = () => {
 
             {status === "error" && (
               <p className="contact__status contact__status--error">
-                No se pudo enviar el mensaje. Probá escribirme por email o WhatsApp.
+                No se pudo enviar el mensaje. Proba escribirme por email o WhatsApp.
+              </p>
+            )}
+
+            {status === "daily-limit" && (
+              <p className="contact__status contact__status--warning">
+                Ya enviaste el mail diario permitido desde esta IP. Podes volver a escribirme manana.
               </p>
             )}
           </form>

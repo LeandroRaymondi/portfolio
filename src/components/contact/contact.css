@@ -129,6 +129,10 @@
   color: #b42318;
 }
 
+.contact__status--warning {
+  color: #9a6700;
+}
+
 @media screen and (max-width: 768px) {
   .contact__container {
     grid-template-columns: 1fr;
