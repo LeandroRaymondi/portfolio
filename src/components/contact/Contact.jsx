@@ -1,12 +1,22 @@
 import React, { useRef, useState } from "react";
 import "./contact.css";
 
+const CONTACT_LIMIT_KEY = "portfolio_contact_sent_date";
+
+const getToday = () => new Date().toISOString().slice(0, 10);
+
 const Contact = () => {
   const form = useRef();
   const [status, setStatus] = useState("");
 
   const sendEmail = async (e) => {
     e.preventDefault();
+
+    if (localStorage.getItem(CONTACT_LIMIT_KEY) === getToday()) {
+      setStatus("daily-limit");
+      return;
+    }
+
     setStatus("sending");
 
     const formData = new FormData(e.currentTarget);
@@ -35,6 +45,7 @@ const Contact = () => {
       }
 
       e.target.reset();
+      localStorage.setItem(CONTACT_LIMIT_KEY, getToday());
       setStatus("success");
     } catch (error) {
       setStatus("error");

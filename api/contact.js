@@ -27,6 +27,39 @@ function getDailyKey(ip) {
   return `contact:${ip}:${new Date().toISOString().slice(0, 10)}`;
 }
 
+function getToday() {
+  return new Date().toISOString().slice(0, 10);
+}
+
+function parseCookies(cookieHeader) {
+  if (!cookieHeader) {
+    return {};
+  }
+
+  return cookieHeader.split(";").reduce((cookies, cookie) => {
+    const [name, ...valueParts] = cookie.trim().split("=");
+
+    if (!name) {
+      return cookies;
+    }
+
+    cookies[name] = decodeURIComponent(valueParts.join("="));
+    return cookies;
+  }, {});
+}
+
+function hasDailyCookie(req) {
+  const cookies = parseCookies(req.headers.cookie);
+  return cookies.contact_sent_date === getToday();
+}
+
+function setDailyCookie(res) {
+  res.setHeader(
+    "Set-Cookie",
+    `contact_sent_date=${getToday()}; Max-Age=${ONE_DAY_SECONDS}; Path=/; HttpOnly; Secure; SameSite=Lax`
+  );
+}
+
 function cleanupMemoryStore() {
   const now = Date.now();
 
@@ -137,7 +170,12 @@ module.exports = async function handler(req, res) {
     const ip = getClientIp(req);
     const dailyKey = getDailyKey(ip);
 
-    if (await hasReachedDailyLimit(dailyKey)) {
+    if (hasDailyCookie(req) || (await hasReachedDailyLimit(dailyKey))) {
+      console.info("contact_daily_limit_reached", {
+        hasKv: Boolean(process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN),
+        ip,
+      });
+
       return res.status(429).json({
         code: "DAILY_LIMIT_REACHED",
         message: "Ya enviaste el mail diario permitido. Podes volver a escribirme manana.",
@@ -146,6 +184,12 @@ module.exports = async function handler(req, res) {
 
     await sendEmail(validation.value);
     await markDailyLimit(dailyKey);
+    setDailyCookie(res);
+
+    console.info("contact_message_sent", {
+      hasKv: Boolean(process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN),
+      ip,
+    });
 
     return res.status(200).json({ message: "Mensaje enviado correctamente." });
   } catch (error) {
