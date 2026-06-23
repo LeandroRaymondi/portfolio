@@ -151,7 +151,7 @@ module.exports = async function handler(req, res) {
 
       return res.status(429).json({
         code: "DAILY_LIMIT_REACHED",
-        message: "Ya enviaste el mail diario permitido. Podes volver a escribirme manana.",
+        message: "Recibi tu consulta recientemente. Para evitar duplicados, proba nuevamente mas tarde.",
       });
     }
 

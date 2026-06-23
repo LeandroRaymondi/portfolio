@@ -147,7 +147,7 @@ const Contact = () => {
 
             {status === "daily-limit" && (
               <p className="contact__status contact__status--warning">
-                Ya enviaste el mail diario permitido desde esta IP. Podes volver a escribirme manana.
+                Recibi tu consulta recientemente. Para evitar duplicados, proba nuevamente mas tarde.
               </p>
             )}
           </form>
